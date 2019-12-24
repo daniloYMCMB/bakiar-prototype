@@ -8,19 +8,21 @@ import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
 import { ConfirmUserComponent } from './user/confirm-user/confirm-user.component';
+import { FormControlsModule } from './user/form-controls/form-controls.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
     UserRegisterComponent,
-    ConfirmUserComponent
+    ConfirmUserComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormControlsModule
   ],
   providers: [AuthGuardService],
   bootstrap: [AppComponent]

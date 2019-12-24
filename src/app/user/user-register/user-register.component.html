@@ -1,1 +1,39 @@
-<p>user-register works!</p>
+<form [formGroup]="anonymousUserForm.form" class="form-group">
+  <div class="row">
+    <div class="col-12 col-lg-9">
+      <app-input-control
+        [inputTitle]="'Nombres y apellidos'"
+        [errorMessage]="anonymousUserForm.nameControl.nameError"
+        [marginWithError]="true">
+        <input type="text" id="nameAnonymous" class="input" maxlength="50" formControlName="name" #inputControl inkafarmaCharacterOnly>
+      </app-input-control>
+    </div>
+    <div class="col-12 col-lg-3">
+
+      <app-input-control
+        [inputTitle]="'DNI'"
+        [errorMessage]="anonymousUserForm.dniControl.dniError"
+        [marginWithError]="true">
+        <input type="text" id="dniAnonymous" class="input" maxlength="8" formControlName="dni" #inputControl inkafarmaDigitOnly>
+      </app-input-control>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-lg-3">
+      <app-input-control
+        [inputTitle]="'Celular'"
+        [errorMessage]="anonymousUserForm.phoneNumberControl.phoneNumberError"
+        [marginWithError]="true">
+        <input type="text" id="phoneAnonymous" class="input" maxlength="9" formControlName="phoneNumber" #inputControl inkafarmaDigitOnly>
+      </app-input-control>
+    </div>
+    <div class="col-12 col-lg-9">
+      <app-input-control
+        [inputTitle]="'Correo electrónico'"
+        [errorMessage]="anonymousUserForm.emailAddressControl.emailAddressError"
+        [marginWithError]="true">
+        <input type="text" id="emailAnonymous" class="input" maxlength="50" formControlName="emailAddress" #inputControl>
+      </app-input-control>
+    </div>
+  </div>
+</form>

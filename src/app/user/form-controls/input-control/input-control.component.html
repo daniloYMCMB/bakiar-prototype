@@ -1,0 +1,12 @@
+<div class="input-control" [ngClass]="{
+  'margin-with-error': marginWithError,
+  'margin-without-error': !marginWithError
+}">
+  <div class="input-control-title label--1">
+    {{inputTitle}}
+  </div>
+  <ng-content></ng-content>
+  <div class="label--2 errorMessage" *ngIf="errorMessage">
+    {{errorMessage}}
+  </div>
+</div>
