@@ -12,6 +12,7 @@ import { UserComponent } from './user/user.component';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
 import { ConfirmUserComponent } from './user/confirm-user/confirm-user.component';
 import { FormControlsModule } from './user/form-controls/form-controls.module';
+import { UserDirectivesModule } from './user/user-directives/user-directives.module';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { FormControlsModule } from './user/form-controls/form-controls.module';
     UserFormsModule,
     FormControlsModule,
     UserStoresModule,
+    UserDirectivesModule
   ],
   providers: [
     AuthGuardService,

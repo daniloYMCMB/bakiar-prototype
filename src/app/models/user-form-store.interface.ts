@@ -1,13 +1,13 @@
-export interface IAnonymousUserFormStore {
+export interface IUserFormStore {
   dni: string;
-  email: string;
+  lastName: string;
   name: string;
-  phone: string;
+  user: string;
 }
 
-export const INITIAL_ANONYMOUS_USER_FORM_STORE: IAnonymousUserFormStore = {
+export const INITIAL_USER_FORM_STORE: IUserFormStore = {
   dni: '',
-  email: '',
+  lastName: '',
   name: '',
-  phone: ''
+  user: ''
 };

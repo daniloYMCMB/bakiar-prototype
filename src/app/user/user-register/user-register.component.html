@@ -2,38 +2,35 @@
   <div class="row">
     <div class="col-12 col-lg-9">
       <app-input-control
-        [inputTitle]="'Nombres y apellidos'"
+        [inputTitle]="'Nombres'"
         [errorMessage]="userRegisterForm.nameControl.nameError"
         [marginWithError]="true">
-        <input type="text" id="nameAnonymous" class="input" maxlength="50" formControlName="name" #inputControl inkafarmaCharacterOnly>
-      </app-input-control>
-    </div>
-    <div class="col-12 col-lg-3">
-
-      <app-input-control
-        [inputTitle]="'DNI'"
-        [errorMessage]="userRegisterForm.dniControl.dniError"
-        [marginWithError]="true">
-        <input type="text" id="dniAnonymous" class="input" maxlength="8" formControlName="dni" #inputControl inkafarmaDigitOnly>
-      </app-input-control>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-12 col-lg-3">
-      <app-input-control
-        [inputTitle]="'Celular'"
-        [errorMessage]="userRegisterForm.phoneControl.phoneNumberError"
-        [marginWithError]="true">
-        <input type="text" id="phoneAnonymous" class="input" maxlength="9" formControlName="phone" #inputControl inkafarmaDigitOnly>
+        <input type="text" class="input" maxlength="50" formControlName="name" #inputControl appCharacterOnly>
       </app-input-control>
     </div>
     <div class="col-12 col-lg-9">
       <app-input-control
-        [inputTitle]="'Correo electrónico'"
-        [errorMessage]="userRegisterForm.emailControl.emailAddressError"
+        [inputTitle]="'Apellidos'"
+        [errorMessage]="userRegisterForm.nameControl.nameError"
         [marginWithError]="true">
-        <input type="text" id="emailAnonymous" class="input" maxlength="50" formControlName="email" #inputControl>
+        <input type="text" class="input" maxlength="50" formControlName="lastName" #inputControl appCharacterOnly>
       </app-input-control>
     </div>
+    <div class="col-12 col-lg-3">
+      <app-input-control
+        [inputTitle]="'DNI'"
+        [errorMessage]="userRegisterForm.dniControl.dniError"
+        [marginWithError]="true">
+        <input type="text" class="input" maxlength="8" formControlName="dni" #inputControl appDigitOnly>
+      </app-input-control>
+    </div>
+  </div>
+  <div class="col-12 col-lg-9">
+    <app-input-control
+      [inputTitle]="'User'"
+      [errorMessage]="userRegisterForm.nameControl.nameError"
+      [marginWithError]="true">
+      <input type="text" class="input" maxlength="50" formControlName="user" #inputControl>
+    </app-input-control>
   </div>
 </form>

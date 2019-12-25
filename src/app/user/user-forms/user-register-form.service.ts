@@ -1,12 +1,12 @@
+import { LastNameControl } from './../../controls/lastName-control';
 import { UserFormStoreService } from './../user-stores/user-form-store.service';
-import { PhoneControl } from './../../controls/phone-control';
 import { NameControl } from './../../controls/name-control';
-import { EmailControl } from './../../controls/email-control';
 import { DniControl } from './../../controls/dni-control';
 import { Injectable } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { take } from 'rxjs/operators';
+import { UserControl } from 'src/app/controls/user-controls';
 
 @Injectable()
 export class UserRegisterFormService {
@@ -14,9 +14,9 @@ export class UserRegisterFormService {
   public form: FormGroup;
 
   private _dniControl = new DniControl();
-  private _emailControl = new EmailControl();
+  private _lastNameControl = new LastNameControl();
   private _nameControl = new NameControl();
-  private _phoneControl = new PhoneControl();
+  private _userControl = new UserControl();
 
   private subscriptions: Subscription[] = [];
 
@@ -26,9 +26,9 @@ export class UserRegisterFormService {
   ) {
     this.form = this.formBuilder.group({
       dni: this._dniControl,
-      email: this._emailControl,
+      lastName: this._lastNameControl,
       name: this._nameControl,
-      phone: this._phoneControl
+      user: this._userControl
     });
     this.loadInitialFormValues();
     this.settingControlValues();
@@ -38,16 +38,16 @@ export class UserRegisterFormService {
     return this.form.get('dni') as DniControl;
   }
 
-  public get emailControl() {
-    return this.form.get('email') as EmailControl;
+  public get lastNameControl() {
+    return this.form.get('lastName') as LastNameControl;
   }
 
   public get nameControl() {
     return this.form.get('name') as NameControl;
   }
 
-  public get phoneControl() {
-    return this.form.get('phone') as PhoneControl;
+  public get userControl() {
+    return this.form.get('user') as UserControl;
   }
 
   private loadInitialFormValues() {
@@ -56,9 +56,9 @@ export class UserRegisterFormService {
       .subscribe(form => {
         this.form.setValue({
           dni: form.dni,
-          email: form.email,
+          lastName: form.lastName,
           name: form.name,
-          phone: form.phone,
+          user: form.user,
         });
       });
   }
@@ -66,13 +66,13 @@ export class UserRegisterFormService {
   private settingControlValues() {
     const dniSubscription = this.dniControl.valueChanges
       .subscribe(value => this.userRegisterStore.setDniValue(value as string));
-    const emailSubscription = this.emailControl.valueChanges
-      .subscribe(value => this.userRegisterStore.setEmailValue(value as string));
+    const lastNameSubscription = this.lastNameControl.valueChanges
+      .subscribe(value => this.userRegisterStore.setLastNameValue(value as string));
     const nameSubscription = this.nameControl.valueChanges
       .subscribe(value => this.userRegisterStore.setNameValue(value as string));
-    const phoneSubscription = this.phoneControl.valueChanges
-      .subscribe(value => this.userRegisterStore.setPhoneValue(value as string));
-    this.subscriptions.push(dniSubscription, emailSubscription, nameSubscription, phoneSubscription);
+    const userSubscription = this.userControl.valueChanges
+      .subscribe(value => this.userRegisterStore.setUserValue(value as string));
+    this.subscriptions.push(dniSubscription, lastNameSubscription, nameSubscription, userSubscription);
   }
 
   public unsubscribeObservers() {

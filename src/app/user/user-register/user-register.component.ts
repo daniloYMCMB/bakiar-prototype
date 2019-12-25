@@ -9,7 +9,7 @@ import { UserRegisterFormService } from '../user-forms/user-register-form.servic
 export class UserRegisterComponent implements OnInit {
 
   constructor(
-    private userRegisterForm: UserRegisterFormService
+    public userRegisterForm: UserRegisterFormService
   ) { }
 
   ngOnInit() {
