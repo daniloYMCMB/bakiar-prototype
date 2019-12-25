@@ -1,3 +1,6 @@
+import { AppStoreService } from './stores/app-store.service';
+import { UserFormsModule } from './user/user-forms/user-forms.module';
+import { UserStoresModule } from './user/user-stores/user-stores.module';
 import { AuthGuardService } from './guards/auth-guard.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -22,9 +25,14 @@ import { FormControlsModule } from './user/form-controls/form-controls.module';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    FormControlsModule
+    UserFormsModule,
+    FormControlsModule,
+    UserStoresModule,
   ],
-  providers: [AuthGuardService],
+  providers: [
+    AuthGuardService,
+    AppStoreService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

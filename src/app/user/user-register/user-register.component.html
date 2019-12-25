@@ -1,9 +1,9 @@
-<form [formGroup]="anonymousUserForm.form" class="form-group">
+<form [formGroup]="userRegisterForm.form" class="form-group">
   <div class="row">
     <div class="col-12 col-lg-9">
       <app-input-control
         [inputTitle]="'Nombres y apellidos'"
-        [errorMessage]="anonymousUserForm.nameControl.nameError"
+        [errorMessage]="userRegisterForm.nameControl.nameError"
         [marginWithError]="true">
         <input type="text" id="nameAnonymous" class="input" maxlength="50" formControlName="name" #inputControl inkafarmaCharacterOnly>
       </app-input-control>
@@ -12,7 +12,7 @@
 
       <app-input-control
         [inputTitle]="'DNI'"
-        [errorMessage]="anonymousUserForm.dniControl.dniError"
+        [errorMessage]="userRegisterForm.dniControl.dniError"
         [marginWithError]="true">
         <input type="text" id="dniAnonymous" class="input" maxlength="8" formControlName="dni" #inputControl inkafarmaDigitOnly>
       </app-input-control>
@@ -22,17 +22,17 @@
     <div class="col-12 col-lg-3">
       <app-input-control
         [inputTitle]="'Celular'"
-        [errorMessage]="anonymousUserForm.phoneNumberControl.phoneNumberError"
+        [errorMessage]="userRegisterForm.phoneControl.phoneNumberError"
         [marginWithError]="true">
-        <input type="text" id="phoneAnonymous" class="input" maxlength="9" formControlName="phoneNumber" #inputControl inkafarmaDigitOnly>
+        <input type="text" id="phoneAnonymous" class="input" maxlength="9" formControlName="phone" #inputControl inkafarmaDigitOnly>
       </app-input-control>
     </div>
     <div class="col-12 col-lg-9">
       <app-input-control
         [inputTitle]="'Correo electrónico'"
-        [errorMessage]="anonymousUserForm.emailAddressControl.emailAddressError"
+        [errorMessage]="userRegisterForm.emailControl.emailAddressError"
         [marginWithError]="true">
-        <input type="text" id="emailAnonymous" class="input" maxlength="50" formControlName="emailAddress" #inputControl>
+        <input type="text" id="emailAnonymous" class="input" maxlength="50" formControlName="email" #inputControl>
       </app-input-control>
     </div>
   </div>
