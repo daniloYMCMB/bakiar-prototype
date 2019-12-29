@@ -8,11 +8,27 @@ import { UserRegisterFormService } from '../user-forms/user-register-form.servic
 })
 export class UserRegisterComponent implements OnInit {
 
+  public documents = [
+    {
+      name: 'dni',
+      value: 'dni'
+    },
+    {
+      name: 'pasaporte',
+      value: 'pasaporte'
+    },
+  ];
+
+  public isSame = false;
+
   constructor(
     public userRegisterForm: UserRegisterFormService
   ) { }
 
   ngOnInit() {
+  }
+
+  changeDay(day: string) {
   }
 
 }

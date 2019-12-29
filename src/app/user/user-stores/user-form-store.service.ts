@@ -44,6 +44,10 @@ export class UserFormStoreService {
     this.setOneFormValue(value, 'user');
   }
 
+  public setTypeDocument(value: string) {
+    this.setOneFormValue(value, 'typeDocument');
+  }
+
   public setOneFormValue(value: string, key: string) {
     const { form } = this;
     form[key] = value;

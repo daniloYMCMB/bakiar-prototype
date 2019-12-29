@@ -1,14 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { InputControlComponent } from './input-control/input-control.component';
+import { InputPasswordComponent } from './input-password/input-password.component';
 
 @NgModule({
-  declarations: [InputControlComponent],
+  declarations: [
+    InputControlComponent,
+    InputPasswordComponent
+  ],
   imports: [
     CommonModule
   ],
   exports: [
-    InputControlComponent
+    InputControlComponent,
+    InputPasswordComponent
   ]
 })
 export class FormControlsModule { }

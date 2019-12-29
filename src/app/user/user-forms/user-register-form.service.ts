@@ -1,3 +1,4 @@
+import { DocumentControl } from './../../controls/document-control';
 import { LastNameControl } from './../../controls/lastName-control';
 import { UserFormStoreService } from './../user-stores/user-form-store.service';
 import { NameControl } from './../../controls/name-control';
@@ -17,6 +18,7 @@ export class UserRegisterFormService {
   private _lastNameControl = new LastNameControl();
   private _nameControl = new NameControl();
   private _userControl = new UserControl();
+  private _typeDocument = new DocumentControl();
 
   private subscriptions: Subscription[] = [];
 
@@ -28,7 +30,8 @@ export class UserRegisterFormService {
       dni: this._dniControl,
       lastName: this._lastNameControl,
       name: this._nameControl,
-      user: this._userControl
+      user: this._userControl,
+      typeDocument: this._typeDocument,
     });
     this.loadInitialFormValues();
     this.settingControlValues();
@@ -50,6 +53,10 @@ export class UserRegisterFormService {
     return this.form.get('user') as UserControl;
   }
 
+  public get typeDocumentControl() {
+    return this.form.get('typeDocument') as DocumentControl;
+  }
+
   private loadInitialFormValues() {
     this.userRegisterStore.form$
       .pipe(take(1))
@@ -59,6 +66,7 @@ export class UserRegisterFormService {
           lastName: form.lastName,
           name: form.name,
           user: form.user,
+          typeDocument: form.typeDocument
         });
       });
   }
@@ -72,7 +80,9 @@ export class UserRegisterFormService {
       .subscribe(value => this.userRegisterStore.setNameValue(value as string));
     const userSubscription = this.userControl.valueChanges
       .subscribe(value => this.userRegisterStore.setUserValue(value as string));
-    this.subscriptions.push(dniSubscription, lastNameSubscription, nameSubscription, userSubscription);
+    const typeDocumentSubscription = this.typeDocumentControl.valueChanges
+      .subscribe(value => this.userRegisterStore.setTypeDocument(value as string));
+    this.subscriptions.push(dniSubscription, lastNameSubscription, nameSubscription, userSubscription, typeDocumentSubscription);
   }
 
   public unsubscribeObservers() {
