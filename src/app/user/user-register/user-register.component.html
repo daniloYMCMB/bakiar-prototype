@@ -47,15 +47,26 @@
       <app-input-password
         [inputTitle]="'Contraseña'"
         [isVerify]="isSame">
-        <input class="w-100 input" #typeControl placeholder="Contraseña" >
+        <input class="w-100 input" type="password" #typeControl placeholder="Contraseña" formControlName="password">
       </app-input-password>
     </div>
     <div class="col-12">
       <app-input-password
         [inputTitle]="'Confirma tu contraseña'"
         [isVerify]="isSame">
-        <input class="w-100 input" #typeControl placeholder="Confirmar contraseña">
+        <input class="w-100 input" type="password" #typeControl placeholder="Confirmar contraseña"  formControlName="confirmPassword">
       </app-input-password>
     </div>
+
+    <div class="col-12">
+      <app-checkbox-control
+        formControlName="areYouSure">
+      </app-checkbox-control>
+    </div>
+
+    <button [disabled]="!userRegisterForm.form.valid"
+          (click)="register()">
+      Registrar
+    </button>
   </div>
 </form>

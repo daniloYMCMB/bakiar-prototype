@@ -1,0 +1,11 @@
+<div class="checkbox-control-container">
+  <label class="checkbox-control mb-0">
+    <input type="checkbox"
+      class="input-checkbox"
+      [checked]="checked"
+      [disabled]="isDisabled"
+      (click)="checkInput($event.target)">
+    <span class="check-mark"></span>
+    <p>Are you sure?</p>
+  </label>
+</div>

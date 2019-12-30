@@ -1,0 +1,46 @@
+.checkbox-control-container
+  .checkbox-control
+    height: 16px
+    display: block
+    position: relative
+    cursor: pointer
+    -webkit-user-select: none
+    -moz-user-select: none
+    -ms-user-select: none
+    user-select: none
+    p
+      margin-left 30px
+    .check-mark
+      position: absolute
+      top: 0
+      left: 0
+      height: 16px
+      width: 16px
+      border: 1px solid black
+      border-radius: 4px
+    .check-mark:after
+      content: ""
+      position: absolute
+      display: none
+      top: 3.5px
+      left: 3px
+      width: 8px
+      height: 5px
+      background: white
+
+    .input-checkbox
+      position: absolute
+      opacity: 0
+      cursor: pointer
+    .input-checkbox:checked ~ .check-mark
+      background-color: red
+      border: 1px solid red
+    .input-checkbox:checked ~ .check-mark:after
+      display: block
+      background: transparent
+      border-bottom: 2px solid white
+      border-left: 2px solid white
+      transform: rotate(-45deg)
+    .input-checkbox[disabled]  ~ .check-mark
+      border: 1px solid gray
+

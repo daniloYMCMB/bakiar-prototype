@@ -3,7 +3,10 @@ export interface IUserFormStore {
   lastName: string;
   name: string;
   user: string;
-  typeDocument:string;
+  typeDocument: string;
+  password: string;
+  confirmPassword: string,
+  areYouSure: boolean
 }
 
 export const INITIAL_USER_FORM_STORE: IUserFormStore = {
@@ -12,4 +15,7 @@ export const INITIAL_USER_FORM_STORE: IUserFormStore = {
   name: '',
   user: '',
   typeDocument: '',
+  password: '',
+  confirmPassword: '',
+  areYouSure: false
 };

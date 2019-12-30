@@ -48,6 +48,18 @@ export class UserFormStoreService {
     this.setOneFormValue(value, 'typeDocument');
   }
 
+  public setPassword(value: string) {
+    this.setOneFormValue(value, 'password');
+  }
+
+  public setConfirmPassword(value: string) {
+    this.setOneFormValue(value, 'confirmPassword');
+  }
+
+  public setAreYouSure(value: string) {
+    this.setOneFormValue(value, 'areYouSure');
+  }
+
   public setOneFormValue(value: string, key: string) {
     const { form } = this;
     form[key] = value;

@@ -31,4 +31,9 @@ export class UserRegisterComponent implements OnInit {
   changeDay(day: string) {
   }
 
+  register(){
+    console.log('register');
+
+  }
+
 }
