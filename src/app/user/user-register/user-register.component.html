@@ -5,7 +5,7 @@
         [inputTitle]="'Nombres'"
         [errorMessage]="userRegisterForm.nameControl.nameError"
         [marginWithError]="true">
-        <input type="text" class="input" maxlength="50" formControlName="name" #inputControl appCharacterOnly>
+        <input type="text" class="input" maxlength="50" formControlName="name" appCharacterOnly>
       </app-input-control>
     </div>
     <div class="col-12">
@@ -13,7 +13,7 @@
         [inputTitle]="'Apellidos'"
         [errorMessage]="userRegisterForm.nameControl.nameError"
         [marginWithError]="true">
-        <input type="text" class="input" maxlength="50" formControlName="lastName" #inputControl appCharacterOnly>
+        <input type="text" class="input" maxlength="50" formControlName="lastName" appCharacterOnly>
       </app-input-control>
     </div>
     <div class="col-12 mb-5">
@@ -31,7 +31,7 @@
         [inputTitle]="'DNI'"
         [errorMessage]="userRegisterForm.dniControl.dniError"
         [marginWithError]="true">
-        <input type="text" class="input" maxlength="8" formControlName="dni" #inputControl appDigitOnly>
+        <input type="text" class="input" maxlength="8" formControlName="dni" appDigitOnly>
       </app-input-control>
     </div>
     <div class="col-12">
@@ -39,7 +39,7 @@
         [inputTitle]="'User'"
         [errorMessage]="userRegisterForm.nameControl.nameError"
         [marginWithError]="true">
-        <input type="text" class="input" maxlength="50" formControlName="user" #inputControl>
+        <input type="text" class="input" maxlength="50" formControlName="user">
       </app-input-control>
     </div>
 
@@ -47,14 +47,14 @@
       <app-input-password
         [inputTitle]="'Contraseña'"
         [isVerify]="isSame">
-        <input class="w-100 input" type="password" #typeControl placeholder="Contraseña" formControlName="password">
+        <input class="w-100 input" type="password" placeholder="Contraseña" formControlName="password">
       </app-input-password>
     </div>
     <div class="col-12">
       <app-input-password
         [inputTitle]="'Confirma tu contraseña'"
         [isVerify]="isSame">
-        <input class="w-100 input" type="password" #typeControl placeholder="Confirmar contraseña"  formControlName="confirmPassword">
+        <input class="w-100 input" type="password" placeholder="Confirmar contraseña"  formControlName="confirmPassword">
       </app-input-password>
     </div>
 
@@ -64,7 +64,7 @@
       </app-checkbox-control>
     </div>
 
-    <button [disabled]="!userRegisterForm.form.valid"
+    <button [disabled]="!validate"
           (click)="register()">
       Registrar
     </button>

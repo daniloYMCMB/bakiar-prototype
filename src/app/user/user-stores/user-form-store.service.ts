@@ -28,6 +28,10 @@ export class UserFormStoreService {
     this.subscriptions.push(formSubscription);
   }
 
+  public get formulario() {
+    return this.form;
+  }
+
   public setDniValue(value: string) {
     this.setOneFormValue(value, 'dni');
   }

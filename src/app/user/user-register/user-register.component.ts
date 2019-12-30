@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserRegisterFormService } from '../user-forms/user-register-form.service';
+import { UserFormStoreService } from '../user-stores/user-form-store.service';
 
 @Component({
   selector: 'app-user-register',
@@ -18,14 +19,20 @@ export class UserRegisterComponent implements OnInit {
       value: 'pasaporte'
     },
   ];
-
+  public validate = false;
   public isSame = false;
 
   constructor(
-    public userRegisterForm: UserRegisterFormService
+    public userRegisterForm: UserRegisterFormService,
+    public userRegisterStore: UserFormStoreService
   ) { }
 
   ngOnInit() {
+    this.userRegisterStore.form$
+      .subscribe(value => {
+        this.validate = value.areYouSure;
+      });
+
   }
 
   changeDay(day: string) {
